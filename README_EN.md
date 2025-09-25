@@ -1,6 +1,18 @@
 # JSON Unescape Tool Collection
 
+[中文版本](README.md)
+
 This tool collection provides multiple ways to handle JSON string unescaping operations. Currently includes 3 tool versions:
+
+## Purpose
+
+In many work scenarios, we need to handle JSON escaping issues.
+For example: We print a JSON string in the log, but the log shows the escaped string, and we need to unescape it back to the original JSON string.
+This is where this tool collection comes in handy.
+
+If we have a string in the log like `{"name": "\u5f20\u4e09", "age": 25, "city": "\u5317\u4eac"}`,
+and we need to unescape it to the original JSON string `{"name": "张三", "age": 25, "city": "北京"}`.
+We can use the command-line version of this tool collection to process it.
 
 ## Tool List
 
@@ -58,7 +70,7 @@ All versions support the following core features:
 
 ### Input Example
 ```
-{\"name\": \"\\u5f20\\u4e09\", \"age\": 25, \"city\": \"\\u5317\\u4eac\"}
+{"name": "\u5f20\u4e09", "age": 25, "city": "\u5317\u4eac"}
 ```
 
 ### Output Result
@@ -87,6 +99,9 @@ source venv/bin/activate  # Linux/Mac
 
 # 4. Install dependencies
 pip install -r requirements.txt
+
+# Install Flask
+pip install flask
 ```
 
 ## Quick Start
@@ -105,7 +120,7 @@ pip install -r requirements.txt
 
 3. **Command Line Version**:
    ```bash
-   echo '{\"test\": \"\\u4e2d\\u6587\"}' > input.txt
+   echo '{"test": "\u4e2d\u6587"}' > input.txt
    python3 unescape_json.py input.txt -zh
    ```
 
