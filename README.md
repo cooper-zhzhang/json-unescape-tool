@@ -2,7 +2,7 @@
 
 [English Version](README_EN.md)
 
-这个工具集提供了多种方式来处理JSON字符串的转义操作。
+这个工具集提供了多种方式来处理JSON字符串的转义操作。目前包含3个工具版本：
 
 ## 工具列表
 
@@ -47,19 +47,6 @@ python3 interactive_unescape_json.py
 - 📊 实时结果显示
 - ✅ JSON格式验证
 
-### 4. GUI桌面版本 (gui_unescape_json.py)
-基于tkinter的桌面应用（需要系统支持tkinter）。
-
-```bash
-python3 gui_unescape_json.py
-```
-
-特点：
-- 🖥️ 桌面应用界面
-- 📋 剪贴板集成
-- 🔄 多轮转义支持
-- 💾 状态保持
-
 ## 功能特性
 
 所有版本都支持以下核心功能：
@@ -89,10 +76,19 @@ python3 gui_unescape_json.py
 ### 安装依赖
 
 ```bash
-# 创建虚拟环境
+# 1. 克隆仓库
+git clone <仓库地址>
+cd tool
+
+# 2. 创建虚拟环境
 python3 -m venv venv
+
+# 3. 激活虚拟环境
 source venv/bin/activate  # Linux/Mac
 # venv\Scripts\activate  # Windows
+
+# 4. 安装依赖
+pip install -r requirements.txt
 
 # 安装Flask
 pip install flask

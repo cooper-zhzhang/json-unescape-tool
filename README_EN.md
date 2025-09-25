@@ -1,6 +1,6 @@
 # JSON Unescape Tool Collection
 
-This tool collection provides multiple ways to handle JSON string unescaping operations.
+This tool collection provides multiple ways to handle JSON string unescaping operations. Currently includes 3 tool versions:
 
 ## Tool List
 
@@ -45,19 +45,6 @@ Features:
 - 📊 Real-time result display
 - ✅ JSON format validation
 
-### 4. GUI Desktop Version (gui_unescape_json.py)
-Desktop application based on tkinter (requires system tkinter support).
-
-```bash
-python3 gui_unescape_json.py
-```
-
-Features:
-- 🖥️ Desktop application interface
-- 📋 Clipboard integration
-- 🔄 Multi-round unescape support
-- 💾 State persistence
-
 ## Features
 
 All versions support the following core features:
@@ -87,13 +74,19 @@ All versions support the following core features:
 ### Install Dependencies
 
 ```bash
-# Create virtual environment
+# 1. Clone repository
+git clone <repository-url>
+cd tool
+
+# 2. Create virtual environment
 python3 -m venv venv
+
+# 3. Activate virtual environment
 source venv/bin/activate  # Linux/Mac
 # venv\Scripts\activate  # Windows
 
-# Install Flask
-pip install flask
+# 4. Install dependencies
+pip install -r requirements.txt
 ```
 
 ## Quick Start
