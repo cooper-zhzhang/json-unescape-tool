@@ -257,7 +257,7 @@
                     <p id="pageSubtitle">智能JSON字符串转义与Unicode转换工具</p>
                 </div>
                 <div>
-                    <button id="langZh" onclick="switchLanguage('zh')" style="margin-right: 10px; padding: 8px 16px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; cursor: pointer; font-weight: bold;">中文</button>
+                    <button id="langZh" onclick="switchLanguage('zh')" style="margin-right: 10px; padding: 8px 16px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; cursor: pointer; font-weight: bold;">中  文</button>
                     <button id="langEn" onclick="switchLanguage('en')" style="padding: 8px 16px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; cursor: pointer;">English</button>
                 </div>
             </div>
@@ -333,7 +333,11 @@
                 outputPlaceholder: '转义后的结果将显示在这里...',
                 statusNoContent: '请输入内容',
                 statusCopySuccess: '复制成功！',
-                statusCopyError: '复制失败，请手动复制'
+                statusCopyError: '复制失败，请手动复制',
+                statusUnescapeSuccess: '转义成功！',
+                statusUnescapeError: '转义失败：',
+                statusNetworkError: '网络错误：',
+                statusInputRequired: '请输入内容！'
             },
             en: {
                 pageTitle: 'JSON Unescape Tool',
@@ -352,7 +356,11 @@
                 outputPlaceholder: 'Unescaped result will be displayed here...',
                 statusNoContent: 'Please enter content',
                 statusCopySuccess: 'Copy successful!',
-                statusCopyError: 'Copy failed, please copy manually'
+                statusCopyError: 'Copy failed, please copy manually',
+                statusUnescapeSuccess: 'Unescape successful!',
+                statusUnescapeError: 'Unescape failed: ',
+                statusNetworkError: 'Network error: ',
+                statusInputRequired: 'Please enter content!'
             }
         };
         
@@ -401,7 +409,7 @@
             const loading = document.getElementById('loading');
             
             if (!inputText) {
-                showStatus('请输入内容！', 'error');
+                showStatus(translations[currentLang].statusInputRequired, 'error');
                 return;
             }
             
@@ -427,13 +435,13 @@
                 
                 if (data.success) {
                     outputText.value = data.result;
-                    showStatus('转义成功！', 'success');
+                    showStatus(translations[currentLang].statusUnescapeSuccess, 'success');
                 } else {
-                    showStatus('转义失败：' + data.error, 'error');
+                    showStatus(translations[currentLang].statusUnescapeError + data.error, 'error');
                 }
             } catch (error) {
                 loading.style.display = 'none';
-                showStatus('网络错误：' + error.message, 'error');
+                showStatus(translations[currentLang].statusNetworkError + error.message, 'error');
             }
         }
         
